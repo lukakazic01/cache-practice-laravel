@@ -7,4 +7,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::post('/products/create', [ProductController::class, 'create']);
+Route::controller(ProductController::class)->prefix('/products')->name('products.')->group(function () {
+    Route::get('/create', 'create')->name('create');
+    Route::post('/store', 'store')->name('store');
+});

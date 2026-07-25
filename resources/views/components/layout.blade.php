@@ -19,8 +19,7 @@
                 </a>
                 <nav class="hidden sm:flex items-center gap-6 text-sm font-medium text-gray-600">
                     <a href="{{ url('/') }}" class="hover:text-indigo-600 transition-colors">Home</a>
-                    <a href="{{ url('/about') }}" class="hover:text-indigo-600 transition-colors">About</a>
-                    <a href="{{ url('/contact') }}" class="hover:text-indigo-600 transition-colors">Contact</a>
+                    <a href="{{ route('products.create') }}" class="hover:text-indigo-600 transition-colors">Create Product</a>
                 </nav>
             </div>
         </div>
