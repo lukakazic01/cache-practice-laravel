@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,7 +15,8 @@ class ProductController extends Controller
     }
 
     public function store(StoreProductRequest $request) {
-        dd($request->all());
+        Products::query()->create($request->validated());
+        return redirect()->back()->with('success', 'Product created successfully!');
     }
 
 }
