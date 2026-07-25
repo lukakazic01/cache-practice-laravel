@@ -9,6 +9,11 @@ use Illuminate\Support\Collection;
 
 #[Table(name: 'products')]
 #[Fillable(['price', 'name', 'description'])]
+/**
+ * @param string $name
+ * @param string $description
+ * @param integer $price
+ */
 class Products extends Model
 {
 

@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function index(ProductRepository $productRepository)
     {
         $products = $productRepository->getLatestProducts(10);
-        return view('products.index');
+        return view('products.index', compact('products'));
     }
 
     public function create()
