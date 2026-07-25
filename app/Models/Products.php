@@ -11,4 +11,8 @@ use Illuminate\Database\Eloquent\Model;
 class Products extends Model
 {
 
+    public static function getLatest(int $limit) {
+        return self::query()->orderBy('created_at', 'descw')->limit($limit)->get();
+    }
+
 }
