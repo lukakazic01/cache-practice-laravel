@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductRequest;
 use App\Models\Products;
 use App\Repositories\ProductRepository;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
 class ProductController extends Controller
