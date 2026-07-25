@@ -5,5 +5,5 @@
             {{ session('success') }}
         </div>
     @endif
-    <p class="mt-6">Products</p>
+    <p>Products</p>
 </x-layout>
