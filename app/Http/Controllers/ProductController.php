@@ -14,9 +14,7 @@ class ProductController extends Controller
     public function index(ProductRepository $productRepository)
     {
         $products = Products::hydrate(
-            Cache::remember('latestProducts', 500, function () use($productRepository) {
-                return $productRepository->getLatestProducts(10)->toArray();
-            })
+            Cache::remember('latestProducts', 500, fn () => $productRepository->getLatestProducts(10)->toArray())
         );
         return view('products.index', compact('products'));
     }
