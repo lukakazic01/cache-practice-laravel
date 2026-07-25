@@ -1,4 +1,9 @@
 <x-layout>
     <x-slot:title>Home</x-slot:title>
-    Products
+    @if (session('success'))
+        <div class="mb-6 rounded-xl border border-green-200 bg-green-50 p-4 text-sm text-green-800">
+            {{ session('success') }}
+        </div>
+    @endif
+    <p class="mt-6">Products</p>
 </x-layout>

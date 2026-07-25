@@ -5,11 +5,6 @@
             <h1 class="text-2xl font-bold text-gray-900">Create Product</h1>
             <p class="text-sm text-gray-500 mt-1">Fill in the details below to add a new product.</p>
         </div>
-        @if (session('success'))
-            <div class="mb-6 rounded-xl border border-green-200 bg-green-50 p-4 text-sm text-green-800">
-                {{ session('success') }}
-            </div>
-        @endif
         <form action="{{ route('products.store') }}" method="POST" class="space-y-6">
             @csrf
             <div>
