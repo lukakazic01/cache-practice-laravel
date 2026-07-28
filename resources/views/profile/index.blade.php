@@ -10,7 +10,7 @@
                 @csrf
                 @method('PUT')
 
-                <x-forms.field name="avatar">
+                <x-forms.field name="profile_image">
                     <x-forms.label>Profile Photo</x-forms.label>
                     <x-forms.file-upload accept="image/*" />
                     <x-forms.error-message />

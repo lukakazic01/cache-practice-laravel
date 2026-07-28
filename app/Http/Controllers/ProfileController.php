@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NewAvatarRequest;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -11,8 +12,8 @@ class ProfileController extends Controller
         return view('profile.index');
     }
 
-    public function changeAvatar(Request $request) {
-        dd(request()->file('avatar'));
+    public function changeAvatar(NewAvatarRequest $request) {
+        dd($request->validated());
     }
 
 }
