@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\NewAvatarRequest;
 use App\Services\ProfileService;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {

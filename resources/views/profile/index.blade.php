@@ -6,6 +6,9 @@
                 <h1 class="text-2xl font-bold text-gray-900">Profile Photo</h1>
                 <p class="text-sm text-gray-500 mt-1">Update your profile picture.</p>
             </div>
+            <div class="mb-6">
+                <img class="size-20 rounded-full object-cover border border-gray-200" src="{{ "/storage/images/avatars/" . auth()->user()->avatar }}"  alt="profile image"/>
+            </div>
             <form action="{{ route('profile.change-avatar') }}" method="POST" class="space-y-6" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
