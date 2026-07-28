@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NewAvatarRequest;
+use App\Services\ProfileService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -12,10 +14,8 @@ class ProfileController extends Controller
         return view('profile.index');
     }
 
-    public function changeAvatar(NewAvatarRequest $request) {
-        $path = $request->file('profile_image')->store('images/avatars', 'public');
-        $name = basename($path);
-        auth()->user()->update(['avatar' => $name]);
+    public function changeAvatar(NewAvatarRequest $request, ProfileService $profileService) {
+        $profileService->changeAvatar($request);
         return redirect()->back();
     }
 
