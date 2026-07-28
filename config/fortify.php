@@ -163,7 +163,7 @@ return [
 
     'features' => [
         Features::registration(),
-        Features::canUpdateProfileInformation()
+        Features::updateProfileInformation()
     ],
 
 ];
