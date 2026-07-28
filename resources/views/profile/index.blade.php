@@ -6,20 +6,17 @@
                 <h1 class="text-2xl font-bold text-gray-900">Profile Photo</h1>
                 <p class="text-sm text-gray-500 mt-1">Update your profile picture.</p>
             </div>
-            <form method="POST" class="space-y-6" enctype="multipart/form-data">
+            <form action="{{ route('profile.update-avatar') }}" method="POST" class="space-y-6" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
-                <x-forms.field name="photo">
+                <x-forms.field name="avatar">
                     <x-forms.label>Profile Photo</x-forms.label>
                     <x-forms.file-upload accept="image/*" />
                     <x-forms.error-message />
                 </x-forms.field>
 
                 <div class="flex items-center justify-end gap-3 pt-2">
-                    <a class="px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-                        Cancel
-                    </a>
                     <x-base.button type="submit">Save</x-base.button>
                 </div>
             </form>
