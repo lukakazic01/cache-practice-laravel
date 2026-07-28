@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\NewAvatarRequest;
 use App\Services\ProfileService;
-use Intervention\Image\Interfaces\ImageManagerInterface;
 
 class ProfileController extends Controller
 {
@@ -13,8 +12,8 @@ class ProfileController extends Controller
         return view('profile.index');
     }
 
-    public function changeAvatar(NewAvatarRequest $request, ProfileService $profileService, ImageManagerInterface $imageManager) {
-        $profileService->changeAvatar($request, $imageManager);
+    public function changeAvatar(NewAvatarRequest $request, ProfileService $profileService) {
+        $profileService->changeAvatar($request);
         return redirect()->back();
     }
 
