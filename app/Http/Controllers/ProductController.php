@@ -12,7 +12,7 @@ class ProductController extends Controller
 
     public function index(ProductRepository $productRepository)
     {
-        $products = Products::hydrate(
+        $products = Products::query()->hydrate(
             Cache::remember('latestProducts', 500, fn () => $productRepository->getLatestProducts(10)->toArray())
         );
         return view('products.index', compact('products'));
