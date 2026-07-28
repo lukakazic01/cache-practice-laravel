@@ -11,7 +11,7 @@ class ProfileController extends Controller
         return view('profile.index');
     }
 
-    public function updateAvatar(Request $request) {
+    public function changeAvatar(Request $request) {
         dd(request()->file('avatar'));
     }
 

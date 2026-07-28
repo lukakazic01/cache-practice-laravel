@@ -6,7 +6,7 @@
                 <h1 class="text-2xl font-bold text-gray-900">Profile Photo</h1>
                 <p class="text-sm text-gray-500 mt-1">Update your profile picture.</p>
             </div>
-            <form action="{{ route('profile.update-avatar') }}" method="POST" class="space-y-6" enctype="multipart/form-data">
+            <form action="{{ route('profile.change-avatar') }}" method="POST" class="space-y-6" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

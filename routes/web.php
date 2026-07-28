@@ -8,7 +8,7 @@ Route::get('/', [ProductController::class, 'index'])->name('products.index');
 
 Route::controller(ProfileController::class)->name('profile.')->prefix('/profile')->middleware('auth')->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::put('/', 'updateAvatar')->name('update-avatar');
+    Route::put('/', 'changeAvatar')->name('change-avatar');
 });
 
 Route::controller(ProductController::class)->prefix('/products')->name('products.')->group(function () {
