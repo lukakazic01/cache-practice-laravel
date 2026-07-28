@@ -11,15 +11,25 @@
     <header class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <a href="{{ url('/') }}" class="flex items-center gap-2 font-bold text-lg text-gray-900">
+                <a href="{{ route('products.index') }}" class="flex items-center gap-2 font-bold text-lg text-gray-900">
                     <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-white">
                         P
                     </span>
                     Products
                 </a>
                 <nav class="hidden sm:flex items-center gap-6 text-sm font-medium text-gray-600">
-                    <a href="{{ url('/') }}" class="hover:text-indigo-600 transition-colors">Home</a>
+                    <a href="{{ route('products.index') }}" class="hover:text-indigo-600 transition-colors">Home</a>
                     <a href="{{ route('products.create') }}" class="hover:text-indigo-600 transition-colors">Create Product</a>
+                    @guest
+                        <a href="{{ route('register') }}" class="hover:text-indigo-600 transition-colors">Register</a>
+                        <a href="{{ route('login') }}" class="hover:text-indigo-600 transition-colors">Login</a>
+                    @endguest
+                    @auth
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <x-base.button type="submit">Logout</x-base.button>
+                        </form>
+                    @endauth
                 </nav>
             </div>
         </div>
