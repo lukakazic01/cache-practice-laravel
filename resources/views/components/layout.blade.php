@@ -25,6 +25,7 @@
                         <a href="{{ route('login') }}" class="hover:text-indigo-600 transition-colors">Login</a>
                     @endguest
                     @auth
+                        <a href="{{ route('profile.index') }}" class="hover:text-indigo-600 transition-colors">Profile</a>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <x-base.button type="submit">Logout</x-base.button>
