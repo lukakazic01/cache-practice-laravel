@@ -13,7 +13,10 @@ class ProfileController extends Controller
     }
 
     public function changeAvatar(NewAvatarRequest $request) {
-        dd($request->validated());
+        $path = $request->file('profile_image')->store('images/avatars', 'public');
+        $name = basename($path);
+        auth()->user()->update(['avatar' => $name]);
+        return redirect()->back();
     }
 
 }
