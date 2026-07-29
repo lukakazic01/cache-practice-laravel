@@ -20,12 +20,10 @@ class ProfileService
      * @throws InvalidArgumentException
      */
     public function changeAvatar(NewAvatarRequest $request) {
-//        $avatar = auth()->user()->avatar;
-//        if ($avatar && Storage::disk('public')->exists('images/avatars/'.$avatar)) {
-//            Storage::disk('public')->delete('images/avatars/'.$avatar);
-//        }
-//        $path = $request->file('profile_image')->store('images/avatars', 'public');
-//        $name = basename($path);
+        $avatar = auth()->user()->avatar;
+        if ($avatar && Storage::disk('public')->exists('images/avatars/'.$avatar)) {
+            Storage::disk('public')->delete('images/avatars/'.$avatar);
+        }
         $name = uniqid() . '.webp';
         $file = $request->file('profile_image');
         $path = Storage::disk('public')->path('images/avatars/' . $name);
