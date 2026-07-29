@@ -9,7 +9,7 @@ use Intervention\Image\Laravel\Facades\Image;
 trait HandleImages
 {
 
-    public function uploadImage(string $requestFileName, ?string $path = "images/avatars/"): string
+    public function uploadImage(string $requestFileName, string $path): string
     {
         $name = uniqid() . '.webp';
         $file = request()->file($requestFileName);
@@ -18,7 +18,7 @@ trait HandleImages
         return $name;
     }
 
-    public function deleteImageFromStorage(string $imageToDelete, ?string $path = "images/avatars/"): void
+    public function deleteImageFromStorage(string $imageToDelete, string $path): void
     {
         if ($imageToDelete && Storage::disk('public')->exists($path . $imageToDelete)) {
             Storage::disk('public')->delete($path . $imageToDelete);

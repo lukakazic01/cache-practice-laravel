@@ -12,8 +12,8 @@ class ProfileController extends Controller
     }
 
     public function changeAvatar(NewAvatarRequest $request) {
-        $this->deleteImageFromStorage(auth()->user()->avatar);
-        $name = $this->uploadImage('profile_image');
+        $this->deleteImageFromStorage(auth()->user()->avatar, "images/avatars/");
+        $name = $this->uploadImage("profile_image", "images/avatars/");
         auth()->user()->update(['avatar' => $name]);
         return redirect()->back();
     }
