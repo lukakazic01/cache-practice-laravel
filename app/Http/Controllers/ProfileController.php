@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NewAvatarRequest;
-use App\Services\ProfileService;
 
 class ProfileController extends Controller
 {
@@ -12,8 +11,9 @@ class ProfileController extends Controller
         return view('profile.index');
     }
 
-    public function changeAvatar(NewAvatarRequest $request, ProfileService $profileService) {
-        $profileService->changeAvatar($request);
+    public function changeAvatar(NewAvatarRequest $request) {
+        $this->deleteImageFromStorage(auth()->user()->avatar);
+        $this->uploadImage('profile_image');
         return redirect()->back();
     }
 
